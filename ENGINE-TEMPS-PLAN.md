@@ -23,7 +23,8 @@ but I could not confirm that.
 With SSH open (see install.md), this only reads; it changes nothing:
 
 1. `ssh root@127.0.0.1 -o HostKeyAlgorithms=+ssh-dss -m hmac-sha1 -p 6969`
-2. `find / -name "libhmiremoting*" 2>/dev/null`
+2. `uname -a` (shows the head unit's QNX version; expected 6.5.0. This decides which QNX compiler
+   is needed.) Then `find / -name "libhmiremoting*" 2>/dev/null`
 3. In a second Command Prompt window (`PATH` = what step 2 printed):
    `scp -o HostKeyAlgorithms=+ssh-dss -o MACs=hmac-sha1 -P 6969 root@127.0.0.1:PATH .`
 4. Give the file to a Claude session. Search its strings for `engine.`, `temperature`, `oil`
