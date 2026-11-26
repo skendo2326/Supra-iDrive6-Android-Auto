@@ -82,6 +82,13 @@ Docker image `qnx650-sdk` with the SDP installed, which the project does not pro
 be made once (or install SDP 6.5 in a VM and run `make rhmiapp` there).
 
 Until then the owner has neither. As far as known, QNX's free licences cover only their current SDP, not 6.5.
+Checked 26 Nov 2026 (web search; qnx.com itself is not reachable from cloud sessions): QNX lists
+SDP 6.5.x under "Legacy Products [End of Life]". Downloads are through a myQNX account, the
+installer needs a licence key from QNX, and the 6.5.0 packages are marked "Commercial". Earlier
+versions' keys are not accepted. Get the full SDP 6.5.0, which includes the ARM targets, not the
+"for x86 Targets" edition. Whether QNX still sells a 6.5 seat, and at what price, is unknown: ask
+their sales team.
+
 The maintainer builds every release with these. The realistic path:
 
 1. Write the change and pass the host tests.
