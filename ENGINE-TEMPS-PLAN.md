@@ -74,7 +74,14 @@ this app framework accepts image data on a model at run time is unknown and woul
 - `libAppFramework.A.so` and `libCoreFramework.A.so` from a head-unit firmware dump
   (`opt/hmi/ID5/lib`), copied into `rhmiapp/lib/`.
 
-The owner has neither. As far as known, QNX's free licences cover only their current SDP, not 6.5.
+The two libraries can be copied off the owner's own head unit over SSH, the same way as
+`libhmiremoting.so` in step 0 (read only). They then match its firmware exactly. The owner is
+willing to buy the QNX licence (26 Nov 2026). Newer QNX releases (SDP 7/8) are no substitute:
+the app must match the head unit's QNX 6.5 and its GCC 4.4.2 C++ library. `build.sh` expects a
+Docker image `qnx650-sdk` with the SDP installed, which the project does not provide, so one has to
+be made once (or install SDP 6.5 in a VM and run `make rhmiapp` there).
+
+Until then the owner has neither. As far as known, QNX's free licences cover only their current SDP, not 6.5.
 The maintainer builds every release with these. The realistic path:
 
 1. Write the change and pass the host tests.
